@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea1c66a9968e409c9384cf20832d952a" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_Tour_du_lichModel.ACCOUNT" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_Tour_du_lichModel.BOOKING" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_Tour_du_lichModel.HOA_DON" Width="1.5" PointX="9.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_Tour_du_lichModel.KHACH_HANG" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_Tour_du_lichModel.KHUYEN_MAI" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_Tour_du_lichModel.NHAN_VIEN" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_Tour_du_lichModel.QUYEN" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_Tour_du_lichModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_Tour_du_lichModel.TOUR" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="QL_Tour_du_lichModel.FK__ACCOUNT__Ma_Quye__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_Tour_du_lichModel.FK__KHACH_HAN__Email__3587F3E0" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_Tour_du_lichModel.FK__NHAN_VIEN__Email__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_Tour_du_lichModel.FK__BOOKING__Ma_KH__5CA1C101" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_Tour_du_lichModel.FK__BOOKING__Ma_Tour__5BAD9CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_Tour_du_lichModel.FK__HOA_DON__Ma_Book__5F7E2DAC" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_Tour_du_lichModel.FK__TOUR__Ma_KM__58D1301D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

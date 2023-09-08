@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QL_Tour_du_lichModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Mat_Khau" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Ma_Quyen" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOOKING">
+          <Key>
+            <PropertyRef Name="Ma_Booking" />
+          </Key>
+          <Property Name="Ma_Booking" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NguoiLon" Type="int" />
+          <Property Name="TreEm" Type="int" />
+          <Property Name="EmBe" Type="int" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="NgayBooking" Type="datetime" />
+          <Property Name="PTTT" Type="nvarchar" MaxLength="20" />
+          <Property Name="ThoiHan_TT" Type="datetime" />
+          <Property Name="LuuY" Type="nvarchar" MaxLength="255" />
+          <Property Name="XacnhanTT" Type="nvarchar" MaxLength="30" />
+          <Property Name="Ma_Tour" Type="varchar" MaxLength="10" />
+          <Property Name="Ma_KH" Type="int" />
+        </EntityType>
+        <EntityType Name="HOA_DON">
+          <Key>
+            <PropertyRef Name="Ma_HD" />
+          </Key>
+          <Property Name="Ma_HD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NguoiLon" Type="int" />
+          <Property Name="TreEm" Type="int" />
+          <Property Name="EmBe" Type="int" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="NgayTT" Type="datetime" />
+          <Property Name="PTTT" Type="nvarchar" MaxLength="20" />
+          <Property Name="LuuY" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ma_Booking" Type="int" />
+        </EntityType>
+        <EntityType Name="KHACH_HANG">
+          <Key>
+            <PropertyRef Name="Ma_KH" />
+          </Key>
+          <Property Name="Ma_KH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten_KH" Type="nvarchar" MaxLength="100" />
+          <Property Name="NgaySinh" Type="smalldatetime" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sdt" Type="varchar" MaxLength="10" />
+          <Property Name="CCCD" Type="varchar" MaxLength="12" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="KHUYEN_MAI">
+          <Key>
+            <PropertyRef Name="Ma_KM" />
+          </Key>
+          <Property Name="Ma_KM" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ngay_KM" Type="datetime" Nullable="false" />
+          <Property Name="Ngay_KTKM" Type="datetime" Nullable="false" />
+          <Property Name="KhuyenMai" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="NHAN_VIEN">
+          <Key>
+            <PropertyRef Name="Ma_NV" />
+          </Key>
+          <Property Name="Ma_NV" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ten_NV" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NgaySinh" Type="datetime" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sdt" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CCCD" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="ChucVu" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="QUYEN">
+          <Key>
+            <PropertyRef Name="Ma_Quyen" />
+          </Key>
+          <Property Name="Ma_Quyen" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ten_Quyen" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TOUR">
+          <Key>
+            <PropertyRef Name="Ma_Tour" />
+          </Key>
+          <Property Name="Ma_Tour" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Img" Type="varchar" MaxLength="100" />
+          <Property Name="Mota" Type="nvarchar" MaxLength="255" />
+          <Property Name="DiaDiem" Type="nvarchar" MaxLength="100" />
+          <Property Name="ThoiGian" Type="varchar" MaxLength="20" />
+          <Property Name="NgayKhoiHanh" Type="datetime" />
+          <Property Name="GiaKM" Type="nvarchar" MaxLength="100" />
+          <Property Name="Gia" Type="nvarchar" MaxLength="100" />
+          <Property Name="DiaDiemKH" Type="nvarchar" MaxLength="100" />
+          <Property Name="LoaiHinh" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ma_KM" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__ACCOUNT__Ma_Quye__17F790F9">
+          <End Role="QUYEN" Type="Self.QUYEN" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUYEN">
+              <PropertyRef Name="Ma_Quyen" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="Ma_Quyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOKING__Ma_KH__5CA1C101">
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="Ma_KH" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="Ma_KH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOKING__Ma_Tour__5BAD9CC8">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="0..1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="Ma_Tour" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="Ma_Tour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOA_DON__Ma_Book__5F7E2DAC">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="0..1" />
+          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="Ma_Booking" />
+            </Principal>
+            <Dependent Role="HOA_DON">
+              <PropertyRef Name="Ma_Booking" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHACH_HAN__Email__3587F3E0">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="Email" />
+            </Principal>
+            <Dependent Role="KHACH_HANG">
+              <PropertyRef Name="Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NHAN_VIEN__Email__1DB06A4F">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="Email" />
+            </Principal>
+            <Dependent Role="NHAN_VIEN">
+              <PropertyRef Name="Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TOUR__Ma_KM__58D1301D">
+          <End Role="KHUYEN_MAI" Type="Self.KHUYEN_MAI" Multiplicity="0..1" />
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHUYEN_MAI">
+              <PropertyRef Name="Ma_KM" />
+            </Principal>
+            <Dependent Role="TOUR">
+              <PropertyRef Name="Ma_KM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QL_Tour_du_lichModelStoreContainer">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOOKING" EntityType="Self.BOOKING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHUYEN_MAI" EntityType="Self.KHUYEN_MAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHAN_VIEN" EntityType="Self.NHAN_VIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUYEN" EntityType="Self.QUYEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TOUR" EntityType="Self.TOUR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ACCOUNT__Ma_Quye__17F790F9" Association="Self.FK__ACCOUNT__Ma_Quye__17F790F9">
+            <End Role="QUYEN" EntitySet="QUYEN" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOKING__Ma_KH__5CA1C101" Association="Self.FK__BOOKING__Ma_KH__5CA1C101">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+            <End Role="BOOKING" EntitySet="BOOKING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOKING__Ma_Tour__5BAD9CC8" Association="Self.FK__BOOKING__Ma_Tour__5BAD9CC8">
+            <End Role="TOUR" EntitySet="TOUR" />
+            <End Role="BOOKING" EntitySet="BOOKING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOA_DON__Ma_Book__5F7E2DAC" Association="Self.FK__HOA_DON__Ma_Book__5F7E2DAC">
+            <End Role="BOOKING" EntitySet="BOOKING" />
+            <End Role="HOA_DON" EntitySet="HOA_DON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHACH_HAN__Email__3587F3E0" Association="Self.FK__KHACH_HAN__Email__3587F3E0">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NHAN_VIEN__Email__1DB06A4F" Association="Self.FK__NHAN_VIEN__Email__1DB06A4F">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TOUR__Ma_KM__58D1301D" Association="Self.FK__TOUR__Ma_KM__58D1301D">
+            <End Role="KHUYEN_MAI" EntitySet="KHUYEN_MAI" />
+            <End Role="TOUR" EntitySet="TOUR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QL_Tour_du_lichModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mat_Khau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ma_Quyen" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="QUYEN" Relationship="Self.FK__ACCOUNT__Ma_Quye__17F790F9" FromRole="ACCOUNT" ToRole="QUYEN" />
+          <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__KHACH_HAN__Email__3587F3E0" FromRole="ACCOUNT" ToRole="KHACH_HANG" />
+          <NavigationProperty Name="NHAN_VIEN" Relationship="Self.FK__NHAN_VIEN__Email__1DB06A4F" FromRole="ACCOUNT" ToRole="NHAN_VIEN" />
+        </EntityType>
+        <EntityType Name="BOOKING">
+          <Key>
+            <PropertyRef Name="Ma_Booking" />
+          </Key>
+          <Property Name="Ma_Booking" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NguoiLon" Type="Int32" />
+          <Property Name="TreEm" Type="Int32" />
+          <Property Name="EmBe" Type="Int32" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="NgayBooking" Type="DateTime" Precision="3" />
+          <Property Name="PTTT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiHan_TT" Type="DateTime" Precision="3" />
+          <Property Name="LuuY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="XacnhanTT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Ma_Tour" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ma_KH" Type="Int32" />
+          <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__BOOKING__Ma_KH__5CA1C101" FromRole="BOOKING" ToRole="KHACH_HANG" />
+          <NavigationProperty Name="TOUR" Relationship="Self.FK__BOOKING__Ma_Tour__5BAD9CC8" FromRole="BOOKING" ToRole="TOUR" />
+          <NavigationProperty Name="HOA_DON" Relationship="Self.FK__HOA_DON__Ma_Book__5F7E2DAC" FromRole="BOOKING" ToRole="HOA_DON" />
+        </EntityType>
+        <EntityType Name="HOA_DON">
+          <Key>
+            <PropertyRef Name="Ma_HD" />
+          </Key>
+          <Property Name="Ma_HD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NguoiLon" Type="Int32" />
+          <Property Name="TreEm" Type="Int32" />
+          <Property Name="EmBe" Type="Int32" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="NgayTT" Type="DateTime" Precision="3" />
+          <Property Name="PTTT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LuuY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ma_Booking" Type="Int32" />
+          <NavigationProperty Name="BOOKING" Relationship="Self.FK__HOA_DON__Ma_Book__5F7E2DAC" FromRole="HOA_DON" ToRole="BOOKING" />
+        </EntityType>
+        <EntityType Name="KHACH_HANG">
+          <Key>
+            <PropertyRef Name="Ma_KH" />
+          </Key>
+          <Property Name="Ma_KH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_KH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sdt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__KHACH_HAN__Email__3587F3E0" FromRole="KHACH_HANG" ToRole="ACCOUNT" />
+          <NavigationProperty Name="BOOKING" Relationship="Self.FK__BOOKING__Ma_KH__5CA1C101" FromRole="KHACH_HANG" ToRole="BOOKING" />
+        </EntityType>
+        <EntityType Name="KHUYEN_MAI">
+          <Key>
+            <PropertyRef Name="Ma_KM" />
+          </Key>
+          <Property Name="Ma_KM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ngay_KM" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ngay_KTKM" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KhuyenMai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TOUR" Relationship="Self.FK__TOUR__Ma_KM__58D1301D" FromRole="KHUYEN_MAI" ToRole="TOUR" />
+        </EntityType>
+        <EntityType Name="NHAN_VIEN">
+          <Key>
+            <PropertyRef Name="Ma_NV" />
+          </Key>
+          <Property Name="Ma_NV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ten_NV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sdt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChucVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__NHAN_VIEN__Email__1DB06A4F" FromRole="NHAN_VIEN" ToRole="ACCOUNT" />
+        </EntityType>
+        <EntityType Name="QUYEN">
+          <Key>
+            <PropertyRef Name="Ma_Quyen" />
+          </Key>
+          <Property Name="Ma_Quyen" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ten_Quyen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK__ACCOUNT__Ma_Quye__17F790F9" FromRole="QUYEN" ToRole="ACCOUNT" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TOUR">
+          <Key>
+            <PropertyRef Name="Ma_Tour" />
+          </Key>
+          <Property Name="Ma_Tour" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Img" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mota" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DiaDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGian" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NgayKhoiHanh" Type="DateTime" Precision="3" />
+          <Property Name="GiaKM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DiaDiemKH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiHinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ma_KM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BOOKING" Relationship="Self.FK__BOOKING__Ma_Tour__5BAD9CC8" FromRole="TOUR" ToRole="BOOKING" />
+          <NavigationProperty Name="KHUYEN_MAI" Relationship="Self.FK__TOUR__Ma_KM__58D1301D" FromRole="TOUR" ToRole="KHUYEN_MAI" />
+        </EntityType>
+        <Association Name="FK__ACCOUNT__Ma_Quye__17F790F9">
+          <End Role="QUYEN" Type="Self.QUYEN" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUYEN">
+              <PropertyRef Name="Ma_Quyen" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="Ma_Quyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHACH_HAN__Email__3587F3E0">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="Email" />
+            </Principal>
+            <Dependent Role="KHACH_HANG">
+              <PropertyRef Name="Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NHAN_VIEN__Email__1DB06A4F">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="NHAN_VIEN" Type="Self.NHAN_VIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="Email" />
+            </Principal>
+            <Dependent Role="NHAN_VIEN">
+              <PropertyRef Name="Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOKING__Ma_KH__5CA1C101">
+          <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACH_HANG">
+              <PropertyRef Name="Ma_KH" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="Ma_KH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BOOKING__Ma_Tour__5BAD9CC8">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="0..1" />
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="Ma_Tour" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="Ma_Tour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOA_DON__Ma_Book__5F7E2DAC">
+          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="0..1" />
+          <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOOKING">
+              <PropertyRef Name="Ma_Booking" />
+            </Principal>
+            <Dependent Role="HOA_DON">
+              <PropertyRef Name="Ma_Booking" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TOUR__Ma_KM__58D1301D">
+          <End Role="KHUYEN_MAI" Type="Self.KHUYEN_MAI" Multiplicity="0..1" />
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHUYEN_MAI">
+              <PropertyRef Name="Ma_KM" />
+            </Principal>
+            <Dependent Role="TOUR">
+              <PropertyRef Name="Ma_KM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QL_Tour_du_lichEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" />
+          <EntitySet Name="BOOKING" EntityType="Self.BOOKING" />
+          <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" />
+          <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" />
+          <EntitySet Name="KHUYEN_MAI" EntityType="Self.KHUYEN_MAI" />
+          <EntitySet Name="NHAN_VIEN" EntityType="Self.NHAN_VIEN" />
+          <EntitySet Name="QUYEN" EntityType="Self.QUYEN" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TOUR" EntityType="Self.TOUR" />
+          <AssociationSet Name="FK__ACCOUNT__Ma_Quye__17F790F9" Association="Self.FK__ACCOUNT__Ma_Quye__17F790F9">
+            <End Role="QUYEN" EntitySet="QUYEN" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHACH_HAN__Email__3587F3E0" Association="Self.FK__KHACH_HAN__Email__3587F3E0">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NHAN_VIEN__Email__1DB06A4F" Association="Self.FK__NHAN_VIEN__Email__1DB06A4F">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="NHAN_VIEN" EntitySet="NHAN_VIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOKING__Ma_KH__5CA1C101" Association="Self.FK__BOOKING__Ma_KH__5CA1C101">
+            <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+            <End Role="BOOKING" EntitySet="BOOKING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BOOKING__Ma_Tour__5BAD9CC8" Association="Self.FK__BOOKING__Ma_Tour__5BAD9CC8">
+            <End Role="TOUR" EntitySet="TOUR" />
+            <End Role="BOOKING" EntitySet="BOOKING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOA_DON__Ma_Book__5F7E2DAC" Association="Self.FK__HOA_DON__Ma_Book__5F7E2DAC">
+            <End Role="BOOKING" EntitySet="BOOKING" />
+            <End Role="HOA_DON" EntitySet="HOA_DON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TOUR__Ma_KM__58D1301D" Association="Self.FK__TOUR__Ma_KM__58D1301D">
+            <End Role="KHUYEN_MAI" EntitySet="KHUYEN_MAI" />
+            <End Role="TOUR" EntitySet="TOUR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QL_Tour_du_lichModelStoreContainer" CdmEntityContainer="QL_Tour_du_lichEntities">
+          <EntitySetMapping Name="ACCOUNT">
+            <EntityTypeMapping TypeName="QL_Tour_du_lichModel.ACCOUNT">
+              <MappingFragment StoreEntitySet="ACCOUNT">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mat_Khau" ColumnName="Mat_Khau" />
+                <ScalarProperty Name="Ma_Quyen" ColumnName="Ma_Quyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOOKING">
+            <EntityTypeMapping TypeName="QL_Tour_du_lichModel.BOOKING">
+              <MappingFragment StoreEntitySet="BOOKING">
+                <ScalarProperty Name="Ma_Booking" ColumnName="Ma_Booking" />
+                <ScalarProperty Name="NguoiLon" ColumnName="NguoiLon" />
+                <ScalarProperty Name="TreEm" ColumnName="TreEm" />
+                <ScalarProperty Name="EmBe" ColumnName="EmBe" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="NgayBooking" ColumnName="NgayBooking" />
+                <ScalarProperty Name="PTTT" ColumnName="PTTT" />
+                <ScalarProperty Name="ThoiHan_TT" ColumnName="ThoiHan_TT" />
+                <ScalarProperty Name="LuuY" ColumnName="LuuY" />
+                <ScalarProperty Name="XacnhanTT" ColumnName="XacnhanTT" />
+                <ScalarProperty Name="Ma_Tour" ColumnName="Ma_Tour" />
+                <ScalarProperty Name="Ma_KH" ColumnName="Ma_KH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOA_DON">
+            <EntityTypeMapping TypeName="QL_Tour_du_lichModel.HOA_DON">
+              <MappingFragment StoreEntitySet="HOA_DON">
+                <ScalarProperty Name="Ma_HD" ColumnName="Ma_HD" />
+                <ScalarProperty Name="NguoiLon" ColumnName="NguoiLon" />
+                <ScalarProperty Name="TreEm" ColumnName="TreEm" />
+                <ScalarProperty Name="EmBe" ColumnName="EmBe" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="NgayTT" ColumnName="NgayTT" />
+                <ScalarProperty Name="PTTT" ColumnName="PTTT" />
+                <ScalarProperty Name="LuuY" ColumnName="LuuY" />
+                <ScalarProperty Name="Ma_Booking" ColumnName="Ma_Booking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACH_HANG">
+            <EntityTypeMapping TypeName="QL_Tour_du_lichModel.KHACH_HANG">
+              <MappingFragment StoreEntitySet="KHACH_HANG">
+                <ScalarProperty Name="Ma_KH" ColumnName="Ma_KH" />
+                <ScalarProperty Name="Ten_KH" ColumnName="Ten_KH" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Sdt" ColumnName="Sdt" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHUYEN_MAI">
+            <EntityTypeMapping TypeName="QL_Tour_du_lichModel.KHUYEN_MAI">
+              <MappingFragment StoreEntitySet="KHUYEN_MAI">
+                <ScalarProperty Name="Ma_KM" ColumnName="Ma_KM" />
+                <ScalarProperty Name="Ngay_KM" ColumnName="Ngay_KM" />
+                <ScalarProperty Name="Ngay_KTKM" ColumnName="Ngay_KTKM" />
+                <ScalarProperty Name="KhuyenMai" ColumnName="KhuyenMai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHAN_VIEN">
+            <EntityTypeMapping TypeName="QL_Tour_du_lichModel.NHAN_VIEN">
+              <MappingFragment StoreEntitySet="NHAN_VIEN">
+                <ScalarProperty Name="Ma_NV" ColumnName="Ma_NV" />
+                <ScalarProperty Name="Ten_NV" ColumnName="Ten_NV" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Sdt" ColumnName="Sdt" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUYEN">
+            <EntityTypeMapping TypeName="QL_Tour_du_lichModel.QUYEN">
+              <MappingFragment StoreEntitySet="QUYEN">
+                <ScalarProperty Name="Ma_Quyen" ColumnName="Ma_Quyen" />
+                <ScalarProperty Name="Ten_Quyen" ColumnName="Ten_Quyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QL_Tour_du_lichModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOUR">
+            <EntityTypeMapping TypeName="QL_Tour_du_lichModel.TOUR">
+              <MappingFragment StoreEntitySet="TOUR">
+                <ScalarProperty Name="Ma_Tour" ColumnName="Ma_Tour" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Mota" ColumnName="Mota" />
+                <ScalarProperty Name="DiaDiem" ColumnName="DiaDiem" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="NgayKhoiHanh" ColumnName="NgayKhoiHanh" />
+                <ScalarProperty Name="GiaKM" ColumnName="GiaKM" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="DiaDiemKH" ColumnName="DiaDiemKH" />
+                <ScalarProperty Name="LoaiHinh" ColumnName="LoaiHinh" />
+                <ScalarProperty Name="Ma_KM" ColumnName="Ma_KM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

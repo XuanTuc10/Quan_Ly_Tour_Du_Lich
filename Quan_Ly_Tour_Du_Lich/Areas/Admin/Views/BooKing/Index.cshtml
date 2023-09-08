@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Quan_Ly_Tour_Du_Lich.Areas.Admin.Models.BOOKING>
+@{
+    ViewBag.Title = "Booking";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Booking</a>
+        </li>
+    </ul>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản lý danh mục</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Danh mục</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Danh sách danh mục</h3>
+
+            <div class="card-tools">
+                <a href="/Admin/BooKing/Add_Booking" class="btn btn-primary">Thêm mới</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Mã Booking</th>
+                        <th>Người lớn</th>
+                        <th>Trẻ em</th>
+                        <th>Em bé</th>
+                        <th>Giá</th>
+                        <th>Ngày Booking</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Thời hạn thanh toán</th>
+                        <th>Lưu ý</th>
+                        <th>Xác nhận thanh toán</th>
+                        <th>Mã tour</th>
+                        <th>Mã khách hàng</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Ma_Booking)</td>
+                            <td>@Html.DisplayFor(modelItem => item.NguoiLon) </td>
+                            <td>@Html.DisplayFor(modelItem => item.TreEm)</td>
+                            <td>@Html.DisplayFor(modelItem => item.EmBe)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Gia)</td>
+                            <td>@Html.DisplayFor(modelItem => item.NgayBooking)</td>
+                            <td>@Html.DisplayFor(modelItem => item.PTTT)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ThoiHan_TT)</td>
+                            <td>@Html.DisplayFor(modelItem => item.LuuY)</td>
+                            <td>@Html.DisplayFor(modelItem => item.XacnhanTT)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Ma_Tour)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Ma_KH)</td>
+                            <td>
+                                @Html.ActionLink("Edit","Edit", new {maBooKing = item.Ma_Booking}) |
+                                @Html.ActionLink("Delete","Delete", new {maBooKing = item.Ma_Booking}) |
+                                @Html.ActionLink("Details","Details", new {maBooKing = item.Ma_Booking}) 
+                                
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    < tr >
+                    < td colspan = "4" > Không có bản ghi nào!!!</ td >
+
+
+                    </ tr >
+                }
+            </table>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->
